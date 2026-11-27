@@ -7,3 +7,4 @@ __pycache__/
 .DS_Store
 prep_*.log
 data/tmp/
+nbrun.log
