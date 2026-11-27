@@ -20,7 +20,32 @@ Each record links a scene image to a product that appears in it, together with t
  "bbox":    [0.434097, 0.859363, 0.560254, 1.0]}
 ```
 
-- Source and image download instructions: https://github.com/kang205/STL-Dataset
+Bounding boxes are normalized `(left, top, right, bottom)`, with `(0, 0)` at the top-left corner.
+
+### Getting the data
+
+- Dataset page: https://cseweb.ucsd.edu/~jmcauley/datasets.html#pinterest
+- Official repository: https://github.com/kang205/STL-Dataset
+- Direct downloads (we use the fashion subset):
+  - [`fashion.json`](https://raw.githubusercontent.com/kang205/STL-Dataset/master/fashion.json): scene–product pairs (~10 MB)
+  - [`fashion-cat.json`](https://raw.githubusercontent.com/kang205/STL-Dataset/master/fashion-cat.json): product categories (~3 MB)
+
+```bash
+mkdir -p data
+curl -L -o data/fashion.json     https://raw.githubusercontent.com/kang205/STL-Dataset/master/fashion.json
+curl -L -o data/fashion-cat.json https://raw.githubusercontent.com/kang205/STL-Dataset/master/fashion-cat.json
+```
+
+Images are not included in the dataset. Each `scene` and `product` ID is a Pinterest image signature, and the image URL is built from it:
+
+```python
+def convert_to_url(signature):
+    prefix = 'http://i.pinimg.com/400x/%s/%s/%s/%s.jpg'
+    return prefix % (signature[0:2], signature[2:4], signature[4:6], signature)
+```
+
+### Notes
+
 - Interactions are very sparse (about 2 products per scene), and most evaluation scenes are unseen during training. ID-only collaborative filtering therefore faces a cold-start problem, which motivates using visual content.
 
 ## Problem Formulation
