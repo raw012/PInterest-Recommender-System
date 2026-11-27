@@ -1,6 +1,7 @@
-# large generated feature files (GitHub 100MB limit)
-*.npy
-*.pt
+# raw images (~1GB) are re-downloaded by prepare_data.py; CLIP features in data/*.npy ARE tracked
+data/images/
+.venv/
+prepare.log
 .ipynb_checkpoints/
 __pycache__/
 .DS_Store

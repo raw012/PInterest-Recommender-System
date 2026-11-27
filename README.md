@@ -73,15 +73,35 @@ def convert_to_url(signature):
 | Visual BPR | Images + interactions | Learned projection of visual features, trained with BPR (VBPR-style) |
 | + Region / category variants | Images | Scene crops from bounding boxes; category-aware scoring |
 
+## Results (v1, test set, 99 same-category negatives)
+
+| Model | AUC | Hit@10 | NDCG@10 |
+|---|---|---|---|
+| Random | 0.500 | 0.108 | 0.048 |
+| Popularity | 0.504 | 0.321 | 0.210 |
+| BPR-MF (item bias, cold scenes) | 0.715 | 0.318 | 0.208 |
+| CLIP zero-shot (masked scene) | 0.625 | 0.227 | 0.121 |
+| **Visual BPR (CLIP + category, ours)** | **0.772** | **0.430** | **0.245** |
+
 ## Repository Structure
 
 ```
-data/          # raw STL-Dataset files (cached image features are not tracked)
-src/
-  data.py      # loading, splitting, negative sampling
-  evaluate.py  # shared evaluation (AUC, Hit@K, NDCG@K)
-  models/      # baselines and visual models
-notebooks/     # EDA and experiments
+workbook.ipynb     # main notebook: EDA, split, models, evaluation (export -> workbook.html)
+prepare_data.py    # one-off: download images + extract CLIP ViT-B/32 features
+requirements.txt
+data/
+  fashion.json, fashion-cat.json   # STL-Dataset (fashion subset)
+  feat_*.npy, feat_index.json      # cached CLIP features (float16)
+  images/                          # downloaded images (not tracked, ~1 GB)
+```
+
+## Reproduce
+
+```bash
+python -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python prepare_data.py        # optional: features are already in data/
+.venv/bin/jupyter nbconvert --to notebook --execute --inplace workbook.ipynb
+.venv/bin/jupyter nbconvert --to html workbook.ipynb
 ```
 
 ## References
