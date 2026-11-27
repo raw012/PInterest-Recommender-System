@@ -1,4 +1,4 @@
-data/
+# large generated feature files (GitHub 100MB limit)
 *.npy
 *.pt
 .ipynb_checkpoints/

@@ -51,7 +51,7 @@ Each record links a scene image to a product that appears in it, together with t
 ## Repository Structure
 
 ```
-data/          # raw data and cached image features (not tracked)
+data/          # raw STL-Dataset files (cached image features are not tracked)
 src/
   data.py      # loading, splitting, negative sampling
   evaluate.py  # shared evaluation (AUC, Hit@K, NDCG@K)
