@@ -15,23 +15,29 @@
    "Hit@10": 0.3091587788294894,
    "NDCG@10": 0.20030029225147508
   },
-  "Model A: CNN (ResNet)": {
+  "A: Visual BPR (CNN)": {
    "AUC": 0.7395566113070446,
    "Hit@10": 0.34728702839621384,
    "NDCG@10": 0.18286250950050492
+  },
+  "A: Visual BPR (ViT)": {
+   "AUC": 0.7791001603826561,
+   "Hit@10": 0.42021063858152247,
+   "NDCG@10": 0.23224081497339286
   }
  },
+ "best_A_features": "vit",
  "hit10_by_category": {
-  "Coats & Jackets": 0.3736,
+  "Coats & Jackets": 0.4242,
   "Earrings": 0.2993,
-  "Handbags, Wallets & Cases": 0.3236,
-  "Necklaces": 0.13,
-  "Pants": 0.3342,
-  "Shirts & Tops": 0.3468,
-  "Shoes": 0.3917,
-  "Shorts": 0.2435,
-  "Skirts": 0.3567,
-  "Sunglasses": 0.2751
+  "Handbags, Wallets & Cases": 0.3467,
+  "Necklaces": 0.2,
+  "Pants": 0.4339,
+  "Shirts & Tops": 0.3969,
+  "Shoes": 0.4845,
+  "Shorts": 0.3052,
+  "Skirts": 0.3758,
+  "Sunglasses": 0.3541
  },
  "encoders": {
   "cnn": {
