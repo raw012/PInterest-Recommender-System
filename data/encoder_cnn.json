@@ -1,0 +1,9 @@
+{
+ "arch": "RN101",
+ "weights": "openai",
+ "params_M": 56.3,
+ "embed_dim": 512,
+ "input_px": 224,
+ "images_per_sec": 39.4,
+ "device": "mps"
+}

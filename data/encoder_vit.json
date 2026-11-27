@@ -1,0 +1,9 @@
+{
+ "arch": "ViT-B-32",
+ "weights": "laion2b_s34b_b79k",
+ "params_M": 87.8,
+ "embed_dim": 512,
+ "input_px": 224,
+ "images_per_sec": 145.4,
+ "device": "mps"
+}

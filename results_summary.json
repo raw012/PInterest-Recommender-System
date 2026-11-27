@@ -1,0 +1,56 @@
+{
+ "results": {
+  "Random": {
+   "AUC": 0.49962900569486357,
+   "Hit@10": 0.10745233968804159,
+   "NDCG@10": 0.047573579033291014
+  },
+  "Popularity": {
+   "AUC": 0.4959190626434994,
+   "Hit@10": 0.31075856552459674,
+   "NDCG@10": 0.2049016619138513
+  },
+  "BPR-MF": {
+   "AUC": 0.7054433146287566,
+   "Hit@10": 0.3091587788294894,
+   "NDCG@10": 0.20030029225147508
+  },
+  "Model A: CNN (ResNet)": {
+   "AUC": 0.7395566113070446,
+   "Hit@10": 0.34728702839621384,
+   "NDCG@10": 0.18286250950050492
+  }
+ },
+ "hit10_by_category": {
+  "Coats & Jackets": 0.3736,
+  "Earrings": 0.2993,
+  "Handbags, Wallets & Cases": 0.3236,
+  "Necklaces": 0.13,
+  "Pants": 0.3342,
+  "Shirts & Tops": 0.3468,
+  "Shoes": 0.3917,
+  "Shorts": 0.2435,
+  "Skirts": 0.3567,
+  "Sunglasses": 0.2751
+ },
+ "encoders": {
+  "cnn": {
+   "arch": "RN101",
+   "weights": "openai",
+   "params_M": 56.3,
+   "embed_dim": 512,
+   "input_px": 224,
+   "images_per_sec": 39.4,
+   "device": "mps"
+  },
+  "vit": {
+   "arch": "ViT-B-32",
+   "weights": "laion2b_s34b_b79k",
+   "params_M": 87.8,
+   "embed_dim": 512,
+   "input_px": 224,
+   "images_per_sec": 145.4,
+   "device": "mps"
+  }
+ }
+}
